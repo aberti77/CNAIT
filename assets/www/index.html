@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=deviceWidth; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;"/>
+<title>App CNA</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="css/styles.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="js/jquery.mobile-1.0a2.min.css" />
+<script src="js/jquery-1.4.4.min.js"></script>
+<script src="js/jquery.mobile-1.0a2.min.js"></script>
+<script src="js/phonegap.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script>
+$(function () {	
+/*	var map = null;
+	var destMarker = null;
+	var lat = 12.184964; //37.771829;	
+	var lng = 44.402453; //-122.401681;
+	var latlng;
+	var cPosition = navigator.geolocation.getCurrentPosition(geoSuccess, geoFail, {timeout:3000, enableHighAccuracy:true});
+	
+	function geoSuccess (pos) {
+		lat = pos.coords.latitude;
+		lng = pos.coords.longitude;
+		latlng = new google.maps.LatLng(lat,lng);
+	}
+	
+	function geoFail () { 
+		latlng = new google.maps.LatLng(lat,lng); // Default location is San Francisco
+		$('.errorMsg').css('display', 'block');
+		$('#gMap').css('background-image', 'url(img/fakeMap.jpg)');
+	}
+			
+	function makeMap () {
+		if (map == null) {
+			latlng = new google.maps.LatLng(lat,lng);	
+			var options = { zoom: 16, center: latlng, disableDefaultUI: true, mapTypeId: google.maps.MapTypeId.ROADMAP };
+			map = new google.maps.Map(document.getElementById('gMap'), options);	
+			uRHere = new google.maps.Marker({ position: latlng, map: map, title: 'You are here' });
+		}
+	}
+
+*/
+		
+	$('.mapIt').click(function () {		
+		if (map==null){
+			var map_canvas = document.getElementById('gMap');
+			var latlng;
+			latlng = new google.maps.LatLng(44.402461,12.185377);	
+			
+	        var map_options = {
+	          center: latlng,
+	          zoom: 16,
+	          mapTypeId: google.maps.MapTypeId.ROADMAP
+	        }
+	        var map = new google.maps.Map(map_canvas, map_options)
+			var uRHere = new google.maps.Marker({ position: latlng, map: map, title: 'Siamo qui' });
+		}
+		/*
+		makeMap();
+		var dest = null;		
+		var restName = 'Siamo qui';
+		
+		dest = new google.maps.LatLng(lat, lng);				
+		
+		if (destMarker == null) {
+			destMarker = new google.maps.Marker({ position: dest, map: map, icon: 'img/fork.png', title: restName }); 
+		} else {
+			destMarker.setPosition(dest);
+			destMarker.setTitle(restName);
+		}
+		$('#map h1').text(restName);
+		*/
+	});
+
+	
+	$('body > *').css({minHeight: window.innerHeight + 'px !important'});
+	
+	document.addEventListener('deviceready', doDeviceReady, false);
+	
+	function doDeviceReady () {
+		// The following tells the app to fade #page1 in after the splash screen
+		$('#page1').fadeIn(5000);
+	}
+});
+</script>
+
+</head>
+<body>
+<div data-role="page" id="page1" data-theme="b">
+  <div data-role="header" data-position="fixed">
+    <h1>Area Informatica</h1>
+  </div>
+  <div data-role="content">
+    <div class="logo"><img src="img/logo.png"></div>
+    <ul data-role="listview" data-inset="true">
+      <li><a href="#chisiamo">Chi siamo</a></li>   
+      <li><a href="#organigramma">Organigramma</a></li>   
+      <li><a href="#contatti">Contatti</a></li>
+    </ul>
+  </div>  
+</div>
+
+<div data-role="page" id="organigramma" data-theme="b">
+  <div data-role="header" data-position="fixed">
+    <h1>Area Informatica</h1>
+  </div>
+  <div data-role="content">
+    <div class="addr"><img src="img/organigramma.png" class="thumbnail" width="40%">
+      <h2>Organigramma</h2>              
+    </div>
+    Responsabile sezione Informatica: Marco Di Tieri
+    <ul data-role="listview" data-inset="true">
+      <li><a href="#sistemi">Settore Sistemi</a></li>   
+      <li><a href="#bancadati">Settore Banca Dati e Sviluppo</a></li>   
+      <li><a href="#procedure">Settore Procedure meccanizzate</a></li>
+    </ul>
+  </div>  
+</div>
+
+<div data-role="page" id="sistemi" data-theme="b">
+  <div data-role="header" data-position="fixed">
+    <h1>Area Informatica</h1>
+  </div>
+  <div data-role="content">
+    <div class="addr"><img src="img/homeThumb_one_ton_ono.png" class="thumbnail" width="30%">
+      <h2>Settore Sistemi</h2>              
+    </div>
+    <p class="clearboth">Gestione e assistenza dei sistemi hardware</p>  
+    Addetti
+    <ul>
+<li>G. Bacchilega</li>
+<li>L. Baldi</li>
+<li>C. Baroncini</li>
+   </ul>
+     <div data-role="controlgroup" data-type="horizontal" ><a data-role="button" data-inline="false" href="mailto:sistemi@ra.cna.it">@ mail</a></div>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h4>CNA</h4>
+  </div>
+</div>
+
+<div data-role="page" id="bancadati" data-theme="b">
+  <div data-role="header" data-position="fixed">
+    <h1>Area Informatica</h1>
+  </div>
+  <div data-role="content">
+    <div class="addr"><img src="img/homeThumb_one_ton_ono.png" class="thumbnail" width="30%">
+      <h2>Banca dati e Sviluppo</h2>              
+    </div>
+    <p class="clearboth">Realizzazione Report, statistiche, sviluppo vetrine d'impresa e intranet</p>  
+   Addetti
+   <ul>
+   <li>A. Berti</li> 
+   <li>D. Buresta</li> 
+   <li>O. Chapska</li> 
+   <li>M. Dini</li> 
+   <li>D. Fanti</li>
+   </ul>
+     <div data-role="controlgroup" data-type="horizontal" ><a data-role="button" data-inline="false" href="mailto:gestione_procedure@ra.cna.it">@ mail</a></div>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h4>CNA</h4>
+  </div>
+</div>
+
+<div data-role="page" id="procedure" data-theme="b">
+  <div data-role="header" data-position="fixed">
+    <h1>Area Informatica</h1>
+  </div>
+  <div data-role="content">
+    <div class="addr"><img src="img/homeThumb_one_ton_ono.png" class="thumbnail" width="30%">
+      <h2>Settore Procedure meccanizzate</h2>              
+    </div>
+    <p class="clearboth">Meccanizzazione procedure</p>  
+    Addetti
+    <ul>
+        <li>R. Catalano</li>
+        <li>R. Manaresi</li>
+        <li>C. Pomicetti</li>
+        <li>P. Vasi</li>    
+   </ul>
+     <div data-role="controlgroup" data-type="horizontal" ><a data-role="button" data-inline="false" href="mailto:sistemi@ra.cna.it">@ mail</a></div>
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h4>CNA</h4>
+  </div>
+</div>
+
+
+<div data-role="page" id="chisiamo" data-theme="b">
+  <div data-role="header" data-position="fixed">
+    <h1>Area Informatica</h1>
+  </div>
+  <div data-role="content">
+    <div class="addr"><img src="img/homeThumb_one_ton_ono.png" class="thumbnail" width="30%">
+      <h2>Chi siamo</h2>              
+    </div>
+    <p class="clearboth">Ci occupiamo della fornitura di servizi informatici al personale del sistema CNA.
+     </p> <ul>
+		<li>Realizzazione Report ad hoc</li>
+		<li>Realizzazione vetrine d'impresa per gli artigiani</li>        
+		<li>Sviluppo e mantenimento della Intranet aziendale</li>
+        <li>Gestione e assistenza dei sistemi hardware </li>
+    </ul>
+   
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h4>CNA</h4>
+  </div>
+</div>
+
+<div data-role="page" id="contatti" data-theme="b">
+  <div data-role="header" data-position="fixed">
+    <h1>Area Informatica</h1>
+  </div>
+  <div data-role="content">
+    <div class="addr"><img src="img/homeThumb_small_plates.png" class="thumbnail" width="30%">
+      <h2>Contatti</h2>
+      <p>Area Informatica 
+      <span class="details">presso CNA Ravenna - sede provinciale</span>
+      <span class="details">Tel. 0544 298511</span>
+      <span class="details">Fax 0544 239950</span>
+     </p>
+      <div data-role="controlgroup" data-type="horizontal" ><a href="#map" data-role="button" data-inline="false" class="mapIt">Dove ci troviamo</a><a href="tel://0544298511" data-role="button" data-inline="false">Chiama</a></div>
+    </div>
+  
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h4>CNA</h4>
+  </div>
+</div>
+
+<div data-role="page" id="map" data-theme="b">
+  <div data-role="header" data-position="fixed">
+    <h1>Mappa</h1>
+  </div>
+  <div data-role="content">
+  	<!-- <p class="errorMsg">Your location could not be determined.</p>-->
+    <div id="gMap"></div>         
+  </div>
+  <div data-role="footer" data-position="fixed">
+    <h4>CNA</h4>
+  </div>
+</div>
+<div data-role="page" id="loader" data-theme="b">
+  <div data-role="content">
+    <div id="loading"></div>
+</div>
+</body>
+</html>

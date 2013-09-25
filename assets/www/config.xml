@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.cna.CordovaCli" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>CNA Ravenna</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="dev@callback.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="fullscreen" value="true" />
+    <preference name="webviewbounce" value="true" />
+    <cdv:splash cdv:platform="android" height="480" src="res/screen/android_hdpi_landscape.png" width="800" />
+	<cdv:splash cdv:platform="android" height="800" src="res/screen/android_hdpi_portrait.png" width="480" />
+
+</widget>
